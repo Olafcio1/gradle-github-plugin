@@ -62,7 +62,7 @@ class GitHub implements Plugin<Project> {
                     throw new RuntimeException("Cannot find JAR file for ${path} ${version} (filename = ${filename}) [tried release, expandedAssets has multiple files]")
 
                 var link = items[1].split('<a href="')[1].split('"')[0]
-                downloadTo("https://github.com" + link, libF = (lib = libs.resolve(link.split("/").last())).toFile())
+                downloadTo("https://github.com" + link, libF)
             } catch (e2) {
                 e2.printStackTrace()
                 throw new RuntimeException("Cannot find JAR file for ${path} ${version} (filename = ${filename}) [tried release+expandedAssets]", e2)
